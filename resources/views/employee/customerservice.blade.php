@@ -1,69 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <style type="text/css">
-    label{
-        display: inline-block;
-        width: 200px;
+<head>
+  <style type="text/css">
+    label {
+      display: inline-block;
+      width: 200px;
     }
-    </style>
-    @include('employee.home.css')
-  </head>
-  <body>
-    <div class="container-scroller">
-      <div class="row p-0 m-0 proBanner" id="proBanner">
-        <div class="col-md-12 p-0 m-0">
-          <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
-            <div class="ps-lg-1">
-              <div class="d-flex align-items-center justify-content-between">
-                <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
-                <a href="https://www.bootstrapdash.com/product/corona-free/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
-              </div>
-            </div>
-            <div class="d-flex align-items-center justify-content-between">
-              <a href="https://www.bootstrapdash.com/product/corona-free/"><i class="mdi mdi-home me-3 text-white"></i></a>
-              <button id="bannerClose" class="btn border-0 p-0">
-                <i class="mdi mdi-close text-white me-0"></i>
-              </button>
-            </div>
+
+  </style>
+  @include('employee.home.css')
+</head>
+<body>
+<div class="container-scroller">
+  <div class="row p-0 m-0 proBanner" id="proBanner">
+    <!-- Pro Banner HTML code goes here -->
+  </div>
+
+  @include('employee.home.sidebar')
+  @include('employee.home.navbar')
+
+  {{-- Body part start --}}
+
+  <div class="container-fluid page-body-wrapper">
+
+    <div class="container" style="margin-top: 50px">
+      <div class="row m-2">
+        <form action="" class="col-9">
+          <div class="form-group">
+            <input style="color:black; background:white" type="search" name="search" id="" value="{{$search}}"
+                   class="form-control" placeholder="Search by Account No" aria-describedby="helpId">
           </div>
-        </div>
-      </div>
-    
-    @include('employee.home.sidebar')
-    @include('employee.home.navbar')
+          <button class="btn btn-primary">Search</button>
+          <a href="{{url('customerservice')}}"><button class="btn btn-primary" type="button">Reset</button></a>
+        </form>
 
-    {{-- body part start --}}
-    
-    <div class="container-fluid page-body-wrapper">
-
-      <div class="container" style="margin-top: 50px">
-        <div align="center" style="padding: 15px;">
-          <table style="height: 400px; width: 800px;">
-            <td align="center" style="background: white">
-              <table>
+        <div class="col-3" style="height: 400px; width: 800px;">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Account ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Status</th>
+              <th colspan="2">Operation</th>
+              <th colspan="2">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($customers as $customer)
+              @if($customer->usertype=='0')
                 <tr>
-                  <td colspan="2"><<b style="color: black; font-size:30px;">Customer Service</b></td>
+                  <td><a href="{{url('customerprofile',$customer->id)}}">{{$customer->uid}}</a></td>
+                  <td><a href="{{url('customerprofile',$customer->id)}}">{{$customer->name}}</a></td>
+                  <td>{{$customer->email}}</td>
+                  <td>{{$customer->phone}}</td>
+                  <td>
+                    @if($customer->status=='active')
+                      <a href="#"><span class>Active</a>
+                    @else
+                      <a href="#"><span class>Inactive</a>
+                    @endif
+                    <!-- Deposit button -->
+                  <td><a style="background: green" class="btn btn-primary" href="{{url('deposit',$customer->id)}}">Deposit</a></td>
+                    <!-- Update button -->
+                  <td><a style="background: aqua" class="btn btn-primary" href="{{url('withdraw',$customer->id)}}">WithDraw</a></td>
+                  <td><a class="btn btn-primary" href="{{url('updatecustomer',$customer->id)}}">Update</a></td>
+                    <!-- Button button -->
+                  <td><a class="btn btn-danger"  onclick="return confirm('Are you sure to remove doctor?')" href="{{url('deletecustomer',$customer->id)}}">Delete</a></td>
                 </tr>
-              </table>
-              
-              <div class="card-body">
-                <p class="card-text">
-                  <form method="POST">
-                      <div class="alert alert-success w-50 mx-auto" style="background: aqua">
-                        <h5>Enter Account Number</h5>
-                        <input type="text" name="otherNo" class="form-control " placeholder="Enter  Account number"; style="color:white"; required>
-                        <button type="submit" name="get" class="btn btn-primary"  style="background: green">Get Account Info</button>
-                      </div>
-                  </form>
-                </p>
-              </div>
+              @endif
+            @endforeach
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
 
-    {{-- body part end --}}
+    {{-- Body part end --}}
 
     @include('employee.home.script')
-  </body>
+  </div>
+</div>
+</body>
 </html>

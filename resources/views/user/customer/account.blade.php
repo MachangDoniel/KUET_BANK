@@ -32,8 +32,8 @@ https://templatemo.com/tm-574-mexant
 
 <body>
 
-  @include('sweetalert::alert')
   @include('user.customer.workspace.header')
+  @include('sweetalert::alert')
   <div id="account">
     <div class="swiper-container" id="top">
         <div class="swiper-wrapper">

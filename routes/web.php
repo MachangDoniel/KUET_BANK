@@ -38,15 +38,25 @@ Route::middleware([
 Route::get('/account',[HomeController::class,'account']);
 Route::get('/accountstatement',[HomeController::class,'accountstatement']);
 Route::get('/fundtransfer',[HomeController::class,'fundtransfer']);
-
 Route::get('/cancel_appoint/{id}',[HomeController::class,'cancel_appoint']);
+Route::post('/balance', [HomeController::class, 'balance'])->name('balance');
+Route::get('/fundtransfer', [HomeController::class, 'fundtransfer'])->name('fundtransfer');
+Route::post('/transfer', [HomeController::class, 'transfer'])->name('transfer');
+
 Route::get('/showappointment',[EmployeeController::class,'showappointment']);
 Route::get('/approve/{id}',[EmployeeController::class,'approve']);
 Route::get('/cancel/{id}',[EmployeeController::class,'cancel']);
 Route::get('/emailview/{id}',[EmployeeController::class,'emailview']);
 Route::post('/sendemail/{id}',[EmployeeController::class,'sendemail']);
-
 Route::get('/employeeprofile',[EmployeeController::class,'employeeprofile']);
 Route::get('/updateemployeeprofile',[EmployeeController::class,'updateemployeeprofile']);
 Route::post('/editemployeeprofile/{id}',[EmployeeController::class,'editemployeeprofile']);
-Route::get('/customerservice',[EmployeeController::class,'customerservice']);
+Route::get('/customerservice', [EmployeeController::class, 'customerservice']);
+Route::get('/deposit/{id}', [EmployeeController::class, 'deposit']);
+Route::get('/withdraw/{id}', [EmployeeController::class, 'withdraw']);
+Route::post('/finaldeposit', [EmployeeController::class, 'finaldeposit'])->name('finaldeposit');
+Route::post('/finalwithdraw', [EmployeeController::class, 'finalwithdraw'])->name('finalwithdraw');
+Route::get('/customerprofile/{id}', [EmployeeController::class, 'customerprofile']);
+Route::get('/updatecustomer/{id}',[EmployeeController::class,'updatecustomer']);
+Route::get('/deletecustomer/{id}',[EmployeeController::class,'deletecustomer']);
+
