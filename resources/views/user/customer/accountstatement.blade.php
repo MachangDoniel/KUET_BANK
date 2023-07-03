@@ -32,8 +32,8 @@ https://templatemo.com/tm-574-mexant
 
 <body>
 
-  @include('sweetalert::alert')
   @include('user.customer.workspace.header')
+  @include('sweetalert::alert')
   <div id="account">
     <div class="swiper-container" id="top">
         <div class="swiper-wrapper">
@@ -42,39 +42,35 @@ https://templatemo.com/tm-574-mexant
     
               <div class="container" style="margin-top:100px">
                 <div align="center" style="padding: 15px;" >
-                  <table style="height:400px; width:800px;">
+                  <table style="width:1000px;">
                     <td align="center" style="background:white">
                       <table>
-                        <td><b>Account Information</b></td>
-                        <td>
-                        </table>
-                        <table style="width:500px;">
-                          <tr style="background: black">
-                            <th style="padding: 15px; font-size: 15px; color: white;">Account No</th>
-                            <td style="padding: 15px; font-size: 15px; color: white;">{{$data->uid}}</td>
+                        <td><b>History</b></td>
+                      </table>
+                      <table style="width:1000px;">
+                        <thead>
+                          <tr style="background:black; color:white">
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Message</th>
                           </tr>
-                          <tr style="background: skyblue">
-                            <th style="padding: 15px; font-size: 15px; color: white;">Name</th>
-                            <td style="padding: 15px; font-size: 15px; color: white;">{{$data->name}}</td>
-                          </tr>
-                          <tr style="background: black">
-                            <th style="padding: 15px; font-size: 15px; color: white;">Email</th>
-                            <td style="padding: 15px; font-size: 15px; color: white;">{{$data->email}}</td>
-                          </tr>
-                          <tr style="background: skyblue">
-                            <th style="padding: 15px; font-size: 15px; color: white;">Phone No</th>
-                            <td style="padding: 15px; font-size: 15px; color: white;">{{$data->email}}</td>
-                          </tr>
-                          <tr style="background: black">
-                            <th style="padding: 15px; font-size: 15px; color: white;">Status</th>
-                            <td style="padding: 15px; font-size: 15px; color: white;">{{$data->status}}</td>
-                          </tr>
-    
-                            {{-- <th style="padding: 15px; font-size: 15px; color: white;">Image</th> --}}
-                            {{-- <th style="padding: 15px; font-size: 15px; color: white;">Update</th> --}}
-                            {{-- <th style="padding: 15px; font-size: 15px; color: white;">Delete</th> --}}
-                        </table>
-                        </td>
+                        </thead>
+                        <tbody>
+                          @foreach($info as $row)
+                            @if($row->from==$data->uid || $row->to==$data->uid)
+                            <tr>
+                              <td colspan="3">_______________________________________________________________________________________________________________________________________________</td>
+                            </tr>
+                            <tr style="background:black; color:white">
+                              <td>{{$row->date}}</td>
+                              <td>{{$row->time}}</td>
+                              <td>{{$row->message}}</td>
+                            </tr>
+                            @endif
+                            @endforeach
+                        </tbody>
+                      </table>
+
                       
                     </td>
                   </table>

@@ -44,15 +44,3 @@
     });
 
 </script>
-
-<!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="user/vendor/jquery/jquery.min.js"></script>
-  <script src="user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <script src="user/assets/js/isotope.min.js"></script>
-  <script src="user/assets/js/owl-carousel.js"></script>
-
-  <script src="user/assets/js/tabs.js"></script>
-  <script src="user/assets/js/swiper.js"></script>
-  <script src="user/assets/js/custom.js"></script>

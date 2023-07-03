@@ -33,38 +33,38 @@
                 
             </div>
             @endif
-            <form action="{{url('editemployeeprofile',$employeedata->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('editemployeeprofile',$data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 
                 <div style='padding:15px;'>
                     <label>Name</label>
-                    <input type='text' style='color:black;' name='name' value="{{$employeedata->name}}" required>
+                    <input type='text' style='color:black;' name='name' value="{{$data->name}}" required>
                 </div>
 
                 <div style='padding:15px;'>
                     <label>Email</label>
-                    <input type='text' style='color:black;' name='email' value="{{$employeedata->email}}" required>
+                    <input type='text' style='color:black;' name='email' value="{{$data->email}}" required>
                 </div>
 
                 <div style='padding:15px;'>
                     <label>Phone No</label>
-                    <input type='text' style='color:black;' name='phone' value="{{$employeedata->phone}}" required>
+                    <input type='text' style='color:black;' name='phone' value="{{$data->phone}}" required>
                 </div>
 
                 <div style='padding:15px;'>
                     <label>Status</label>
-                    <input type='text' style='color:black;' name='status' value="{{$employeedata->status}}" required>
+                    <input type='text' style='color:black;' name='status' value="{{$data->status}}" required>
                 </div>
 
-                <div style='padding:15px;'>
+                {{-- <div style='padding:15px;'>
                     <label>Employee Image</label>
-                    <img height="100" width="100" src="employeeimages/{{$employeedata->image}}" alt="Image">
-                </div>
+                    <img height="100" width="100" src="employeeimages/{{$data->image}}" alt="Image">
+                </div> --}}
 
-                <div style='padding:15px;'>
+                {{-- <div style='padding:15px;'>
                     <label>Change Image</label>
                     <input type='file' name='file'>
-                </div>
+                </div> --}}
 
                 <div style='padding:15px;'>
                     <input type='submit' class="btn btn-primary">

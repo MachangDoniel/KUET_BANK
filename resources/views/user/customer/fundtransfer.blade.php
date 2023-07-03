@@ -32,38 +32,102 @@ https://templatemo.com/tm-574-mexant
 
 <body>
 
-  @include('sweetalert::alert')
   @include('user.customer.workspace.header')
+  @include('sweetalert::alert')
   <div id="account">
     <div class="swiper-container" id="top">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="slide-inner" style="background-image:url(user/assets/images/slide-01.jpg)">
     
-              <div class="container-fluid page-body-wrapper">
-
-                <div class="container" style="margin-top: 50px">
-                  <div align="center" style="padding: 15px;">
-                    <table style="height: 400px; width: 800px;">
-                      <td align="center" style="background: white">
-                        <table>
-                          <tr>
-                            <td colspan="2"><b style="color: black; font-size:30px;">Transfer Money</b></td>
-                          </tr>
+              <div class="container" style="margin-top:100px">
+                <div align="center" style="padding: 15px;" >
+                  <table style="height:400px; width:800px;">
+                    <td align="center" style="background:white">
+                      <table>
+                        <td><b>Fund Transfer</b></td>
+                        <td>
                         </table>
-                        
-                        <div class="card-body">
-                          <p class="card-text">
-                            <form method="POST">
-                                <div class="alert alert-success w-50 mx-auto" style="background: aqua">
-                                  <h5>Enter Account Number</h5>
-                                  <input type="text" name="otherNo" class="form-control " placeholder="Enter  Account number"; style="color:white"; required>
-                                  <button type="submit" name="get" class="btn btn-primary"  style="background: green">Get Account Info</button>
-                                </div>
-                            </form>
-                          </p>
-                        </div>
-                  </div>
+                        <form action="" class="col-9">
+                          <div class="form-group" style="width: 400px;">
+                            <input style="color:black; background:white;" type="search" name="search" id="" value="{{$search}}" class="form-control" placeholder="Search by Account No" aria-describedby="helpId">
+                          </div>
+                          <button class="btn btn-primary">Search</button>
+                          <a href="{{url('/fundtransfer')}}"><button class="btn btn-primary" type="button" style="background:aqua">Reset</button></a>
+                          
+                         </form>
+                  
+                          <div class="col-3" style="height: 400px; width: 400px;">
+                            <br>
+                               
+                                @if(isset($customers) && count($customers) > 0)
+                                  @if($customers[0]->uid==$data->uid)
+                                  <script>
+                                    // JavaScript code to display an alert when the condition is not satisfied
+                                    alert('Transaction cant be made with own account');
+                                  </script>
+                                  @elseif($customers[0]->status != 'active')
+                                  <script>
+                                    // JavaScript code to display an alert when the condition is not satisfied
+                                    alert('The Account No is not active');
+                                  </script>
+                                  @elseif($customers[0]->usertype == '0')
+                                  <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th colspan="2" style="font-size:20px">Receiver Info</th>
+                                      </tr>
+                                      <tr>
+                                        <th>Account ID</th>
+                                        <th>Name</th>
+                                        {{-- <th>Action</th> --}}
+                                      </tr>
+                                   </thead>
+                                   <tbody>
+                                    <tr>
+                                      <td>{{$customers[0]->uid}}</td>
+                                      <td>{{$customers[0]->name}}</td>
+                                      {{-- <td>
+                                        <a href="#">
+                                          <button class="btn btn-primary">Transfer</button>
+                                        </a>
+                                      </td> --}}
+                                    </tr>
+                                    </tbody>
+                                  </table>
+                                  <br><br>
+                                  <table class="table">
+                                    <tr>
+                                      <td>
+                                        <form action="{{ route('transfer') }}" method="POST" class="col-9">
+                                          @csrf
+                                          <div class="form-group" style="width: 400px;">
+                                            <input style="color:black; background:white;" type="number" name="transfermoney" id="" class="form-control" placeholder="Enter Amount to Transfer Money" aria-describedby="helpId">
+                                          </div>
+                                          <input type="hidden" name="sender_id" value="{{ $data->id }}">
+                                          <input type="hidden" name="receiver_id" value="{{ $customers[0]->id }}">
+                                          <button class="btn btn-primary">Transfer Money</button>
+                                        </form>
+                                        
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  @else
+                                  <script>
+                                    // JavaScript code to display an alert when the condition is not satisfied
+                                    alert('The Account No is not valid');
+                                  </script>
+                                  @endif
+                                @elseif($search!=null)
+                                <script>
+                                  // JavaScript code to display an alert when the condition is not satisfied
+                                  alert('The Account No is not valid');
+                                </script>
+                                @endif
+                              
+                          </div>
+                    </td>
+                  </table>
                 </div>
               </div>
               

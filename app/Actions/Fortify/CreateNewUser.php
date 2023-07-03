@@ -39,7 +39,7 @@ public function create(array $input): User
         'name' => $input['name'],
         'email' => $input['email'],
         'phone' => $input['phone'],
-        'image' => 'N/A',
+        'image' => 'photos\user.jpg',
         'password' => Hash::make($input['password']),
     ]);
 
