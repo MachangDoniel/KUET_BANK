@@ -61,7 +61,7 @@ https://templatemo.com/tm-574-mexant
                             <br>
                                
                                 @if(isset($customers) && count($customers) > 0)
-                                  @if($customers[0]->uid==$data->uid)
+                                  @if($customers[0]->uid==$customerdata->uid)
                                   <script>
                                     // JavaScript code to display an alert when the condition is not satisfied
                                     alert('Transaction cant be made with own account');
@@ -104,7 +104,7 @@ https://templatemo.com/tm-574-mexant
                                           <div class="form-group" style="width: 400px;">
                                             <input style="color:black; background:white;" type="number" name="transfermoney" id="" class="form-control" placeholder="Enter Amount to Transfer Money" aria-describedby="helpId">
                                           </div>
-                                          <input type="hidden" name="sender_id" value="{{ $data->id }}">
+                                          <input type="hidden" name="sender_id" value="{{ $customerdata->id }}">
                                           <input type="hidden" name="receiver_id" value="{{ $customers[0]->id }}">
                                           <button class="btn btn-primary">Transfer Money</button>
                                         </form>
@@ -136,5 +136,6 @@ https://templatemo.com/tm-574-mexant
       </div>
     </div>
     </div>  
+    @include('sweetalert::alert')
   </body>
 </html>

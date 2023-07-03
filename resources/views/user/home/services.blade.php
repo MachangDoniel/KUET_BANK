@@ -56,10 +56,10 @@
         <div class="col-lg-7">
           <div class="buttons">
             <div class="green-button">
-              <a href="#">Discover More</a>
+              <a href="{{url('discovermore')}}">Discover More</a>
             </div>
             <div class="orange-button">
-              <a href="#">Contact Us</a>
+              <a href="#communicate">Contact Us</a>
             </div>
           </div>
         </div>

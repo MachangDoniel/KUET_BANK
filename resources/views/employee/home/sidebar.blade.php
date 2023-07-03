@@ -17,7 +17,7 @@
               <span>Employee</span>
             </div>
           </div>
-          <a href="#" id="profile-dropdown" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+          <a href="{{url('notavailable')}}" id="profile-dropdown" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
           <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
             <a href="#" class="dropdown-item preview-item">
               <div class="preview-thumbnail">
@@ -79,6 +79,15 @@
             <i class="mdi mdi-file-document-box"></i>
           </span>
           <span class="menu-title">Customer Service</span>
+        </a>
+      </li>
+
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{url('showfeedback')}}">
+          <span class="menu-icon">
+            <i class="mdi mdi-file-document-box"></i>
+          </span>
+          <span class="menu-title">Feedback</span>
         </a>
       </li>
     </ul>

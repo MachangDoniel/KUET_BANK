@@ -33,7 +33,7 @@
                 
             </div>
             @endif
-            <form action="{{url('editemployeeprofile',$data->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('editcustomerprofile',$data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 
                 <div style='padding:15px;'>
@@ -75,5 +75,6 @@
     </div>
 
     @include('employee.home.script')
+    @include('sweetalert::alert')
   </body>
 </html>

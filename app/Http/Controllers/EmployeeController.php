@@ -10,6 +10,8 @@ use Carbon\Carbon;
 use App\Models\Employee;
 use App\Models\User;
 use App\Models\Transaction;
+use App\Models\Transactionmethod;
+use App\Models\Feedback;
 
 use App\Models\Appointment;
 use Notification;
@@ -79,7 +81,7 @@ class EmployeeController extends Controller
                 if ($search != "") {
                     //where
                     // $customers=user::where('user_name','=',$search)->get();
-                    $customers = User::where('id', '=', $search)->orWhere('name', 'LIKE', "%$search%")->get();
+                    $customers = User::where('uid', '=', $search)->orWhere('name', 'LIKE', "%$search%")->get();
                 } else {
                     $customers = User::all();
                 }
@@ -132,6 +134,11 @@ class EmployeeController extends Controller
                     $transaction->time=Carbon::now()->format('H:i:s');
                     $transaction->message="Deposited Tk $amount. Balance Tk $data->balance. at $transaction->date, $transaction->time";
                     $transaction->save();
+
+                    $transactionmethod=transactionmethod::find(1);
+                    $transactionmethod->deposit+=$amount;
+                    $transactionmethod->total+=$amount;
+                    $transactionmethod->save();
 
                     Alert::success('Deposit Successful', 'Money has been added successfully.');
                 }
@@ -188,6 +195,11 @@ class EmployeeController extends Controller
                     $transaction->message="Withdrew Tk $amount. Balance Tk $data->balance. at $transaction->date, $transaction->time";
                     $transaction->save();
 
+                    $transactionmethod=transactionmethod::find(1);
+                    $transactionmethod->withdraw+=$amount;
+                    $transactionmethod->total+=$amount;
+                    $transactionmethod->save();
+
                     Alert::success('Withdraw Successful', 'Money has been credited successfully.');
                 }
             }
@@ -234,10 +246,65 @@ class EmployeeController extends Controller
         }
     }
 
+    public function editcustomerprofile(Request $request, $id)
+    {
+        if (Auth::id()) {
+            if (Auth::user()->usertype == 1) {
+                $data = User::find($id);
+                $data->name = $request->name;
+                $data->email = $request->email;
+                $data->phone = $request->phone;
+                $data->status = $request->status;
+
+                $data->save();
+                return redirect()->back()->with('message', 'Customer Details Updated Successfully');
+            } else {
+                return redirect()->back();
+            }
+        } else {
+            return redirect('login');
+        }
+    }
+
     public function deletecustomer($id){
         if(Auth::id()){
             if(Auth::user()->usertype==1){
+                Alert::success('Customer Deleted Succesfully','Customer Deleted Succesfully');
                 $data=user::find($id);
+                $data->delete();
+                return redirect()->back();
+            }
+            else{
+                return redirect()->back();
+            }
+        }
+        else{
+            return redirect('login');
+        }
+    }
+
+    public function showfeedback(Request $request)
+    {
+        if (Auth::id()) {
+            if (Auth::user()->usertype == 1) {
+                $employeedata= User::find(Auth::id());
+                $feedback = feedback::all();
+                
+                return view('employee.showfeedback',compact('feedback','employeedata'));
+            } 
+            else {
+                return redirect()->back();
+            }
+        } 
+        else {
+            return redirect('login');
+        }
+    }
+    public function deletefeedback($id){
+        if(Auth::id()){
+            if(Auth::user()->usertype==1){
+                Alert::success('Feedback Deleted Succesfully','Feedback Deleted Succesfully');
+                $data=feedback::find($id);
                 $data->delete();
                 return redirect()->back();
             }

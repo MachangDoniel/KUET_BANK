@@ -33,7 +33,6 @@ https://templatemo.com/tm-574-mexant
 <body>
 
   @include('user.customer.workspace.header')
-  @include('sweetalert::alert')
   <div id="account">
     <div class="swiper-container" id="top">
         <div class="swiper-wrapper">
@@ -51,23 +50,23 @@ https://templatemo.com/tm-574-mexant
                         <table style="width:500px;">
                           <tr style="background: black">
                             <th style="padding: 15px; font-size: 15px; color: white;">Account No</th>
-                            <td style="padding: 15px; font-size: 15px; color: white;">{{$data->uid}}</td>
+                            <td style="padding: 15px; font-size: 15px; color: white;">{{$customerdata->uid}}</td>
                           </tr>
                           <tr style="background: skyblue">
                             <th style="padding: 15px; font-size: 15px; color: white;">Name</th>
-                            <td style="padding: 15px; font-size: 15px; color: white;">{{$data->name}}</td>
+                            <td style="padding: 15px; font-size: 15px; color: white;">{{$customerdata->name}}</td>
                           </tr>
                           <tr style="background: black">
                             <th style="padding: 15px; font-size: 15px; color: white;">Email</th>
-                            <td style="padding: 15px; font-size: 15px; color: white;">{{$data->email}}</td>
+                            <td style="padding: 15px; font-size: 15px; color: white;">{{$customerdata->email}}</td>
                           </tr>
                           <tr style="background: skyblue">
                             <th style="padding: 15px; font-size: 15px; color: white;">Phone No</th>
-                            <td style="padding: 15px; font-size: 15px; color: white;">{{$data->email}}</td>
+                            <td style="padding: 15px; font-size: 15px; color: white;">{{$customerdata->email}}</td>
                           </tr>
                           <tr style="background: black">
                             <th style="padding: 15px; font-size: 15px; color: white;">Status</th>
-                            <td style="padding: 15px; font-size: 15px; color: white;">{{$data->status}}</td>
+                            <td style="padding: 15px; font-size: 15px; color: white;">{{$customerdata->status}}</td>
                           </tr>
     
                             {{-- <th style="padding: 15px; font-size: 15px; color: white;">Image</th> --}}
@@ -86,5 +85,6 @@ https://templatemo.com/tm-574-mexant
       </div>
     </div>
     </div>  
+    @include('sweetalert::alert')
   </body>
 </html>

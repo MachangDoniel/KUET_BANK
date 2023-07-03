@@ -79,6 +79,7 @@
     {{-- Body part end --}}
 
     @include('employee.home.script')
+    @include('sweetalert::alert')
   </div>
 </div>
 </body>

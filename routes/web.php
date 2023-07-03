@@ -39,11 +39,16 @@ Route::get('/account',[HomeController::class,'account']);
 Route::get('/accountstatement',[HomeController::class,'accountstatement']);
 Route::get('/fundtransfer',[HomeController::class,'fundtransfer']);
 Route::get('/cancel_appoint/{id}',[HomeController::class,'cancel_appoint']);
-Route::post('/balance', [HomeController::class, 'balance'])->name('balance');
+// Route::post('/balance', [HomeController::class, 'balance'])->name('balance');
+Route::get('/balance', [HomeController::class, 'balance']);
 Route::get('/fundtransfer', [HomeController::class, 'fundtransfer'])->name('fundtransfer');
 Route::post('/transfer', [HomeController::class, 'transfer'])->name('transfer');
+Route::get('/discovermore', [HomeController::class, 'discovermore']);
+Route::get('/donieltripura', [HomeController::class, 'donieltripura']);
+Route::post('/sendfeedback', [HomeController::class, 'sendfeedback'])->name('sendfeedback');
+Route::get('/notavailable', [HomeController::class, 'notavailable']);
 
-Route::get('/showappointment',[EmployeeController::class,'showappointment']);
+
 Route::get('/approve/{id}',[EmployeeController::class,'approve']);
 Route::get('/cancel/{id}',[EmployeeController::class,'cancel']);
 Route::get('/emailview/{id}',[EmployeeController::class,'emailview']);
@@ -58,5 +63,7 @@ Route::post('/finaldeposit', [EmployeeController::class, 'finaldeposit'])->name(
 Route::post('/finalwithdraw', [EmployeeController::class, 'finalwithdraw'])->name('finalwithdraw');
 Route::get('/customerprofile/{id}', [EmployeeController::class, 'customerprofile']);
 Route::get('/updatecustomer/{id}',[EmployeeController::class,'updatecustomer']);
+Route::post('/editcustomerprofile/{id}',[EmployeeController::class,'editcustomerprofile']);
 Route::get('/deletecustomer/{id}',[EmployeeController::class,'deletecustomer']);
-
+Route::get('/showfeedback',[EmployeeController::class,'showfeedback']);
+Route::get('/deletefeedback/{id}',[EmployeeController::class,'deletefeedback']);

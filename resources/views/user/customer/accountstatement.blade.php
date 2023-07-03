@@ -33,7 +33,6 @@ https://templatemo.com/tm-574-mexant
 <body>
 
   @include('user.customer.workspace.header')
-  @include('sweetalert::alert')
   <div id="account">
     <div class="swiper-container" id="top">
         <div class="swiper-wrapper">
@@ -57,7 +56,7 @@ https://templatemo.com/tm-574-mexant
                         </thead>
                         <tbody>
                           @foreach($info as $row)
-                            @if($row->from==$data->uid || $row->to==$data->uid)
+                            @if($row->from==$customerdata->uid || $row->to==$customerdata->uid)
                             <tr>
                               <td colspan="3">_______________________________________________________________________________________________________________________________________________</td>
                             </tr>
@@ -82,5 +81,6 @@ https://templatemo.com/tm-574-mexant
       </div>
     </div>
     </div>  
+    @include('sweetalert::alert')
   </body>
 </html>

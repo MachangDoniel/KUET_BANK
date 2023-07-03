@@ -13,9 +13,9 @@
               <div class="row">
                 <div class="col-lg-12">
                   <div class="menu">
-                    <div class="active gradient-border"><span>Web Design</span></div>
-                    <div class="gradient-border"><span>Graphics</span></div>
-                    <div class="gradient-border"><span>Web Coding</span></div>
+                    <div class="active gradient-border"><span>Marketing Plan</span></div>
+                    <div class="gradient-border"><span>Technology</span></div>
+                    <div class="gradient-border"><span>Collaboration</span></div>
                   </div>
                 </div>
                 <div class="col-lg-12">
@@ -29,28 +29,28 @@
                           <span class="title">Client</span>
                         </div>
                         <div class="list-item">
-                          <span class="item item-title">Website Redesign</span>
+                          <span class="item item-title">Consumer Banking</span>
                           <span class="item">$1,500 to $2,200</span>
-                          <span class="item">2022 Dec 12</span>
-                          <span class="item">Web Biz</span>
+                          <span class="item">2023 Dec 12</span>
+                          <span class="item">Sheikh Nibir</span>
                         </div>
                         <div class="list-item">
-                          <span class="item item-title">Website Renovation</span>
+                          <span class="item item-title">Commercial Banking</span>
                           <span class="item">$2,500 to $3,600</span>
-                          <span class="item">2022 Dec 10</span>
-                          <span class="item">Online Ads</span>
+                          <span class="item">2023 Dec 10</span>
+                          <span class="item">Al Mahmud</span>
                         </div>
                         <div class="list-item">
                           <span class="item item-title">Marketing Plan</span>
                           <span class="item">$2,500 to $4,200</span>
-                          <span class="item">2022 Dec 8</span>
-                          <span class="item">Web Biz</span>
+                          <span class="item">2023 Dec 8</span>
+                          <span class="item">PKD Biduyt</span>
                         </div>
                         <div class="list-item last-item">
-                          <span class="item item-title">All-new Website</span>
+                          <span class="item item-title">Compliance</span>
                           <span class="item">$3,000 to $6,600</span>
-                          <span class="item">2022 Dec 2</span>
-                          <span class="item">Web Presence</span>
+                          <span class="item">2024 Jan 2</span>
+                          <span class="item">Ehsanul Karim</span>
                         </div>
                       </div>
                     </li>
@@ -63,28 +63,28 @@
                           <span class="title">Client</span>
                         </div>
                         <div class="list-item">
-                          <span class="item item-title">Graphics Redesign</span>
+                          <span class="item item-title">New App Development</span>
                           <span class="item">$500 to $800</span>
-                          <span class="item">2022 Nov 24</span>
-                          <span class="item">Media One</span>
+                          <span class="item">2024 Nov 24</span>
+                          <span class="item">Md Abu Saeed</span>
                         </div>
                         <div class="list-item">
-                          <span class="item item-title">Digital Graphics</span>
+                          <span class="item item-title">Website Development</span>
                           <span class="item">$1,500 to $3,000</span>
-                          <span class="item">2022 Nov 18</span>
-                          <span class="item">Second Media</span>
+                          <span class="item">2024 Nov 18</span>
+                          <span class="item">Md Labib</span>
                         </div>
                         <div class="list-item">
-                          <span class="item item-title">New Artworks</span>
+                          <span class="item item-title">New Tools</span>
                           <span class="item">$2,200 to $4,400</span>
-                          <span class="item">2022 Nov 10</span>
-                          <span class="item">Artwork Push</span>
+                          <span class="item">2024 Nov 10</span>
+                          <span class="item">Sunzidul Islam</span>
                         </div>
                         <div class="list-item last-item">
-                          <span class="item item-title">Complex Arts</span>
+                          <span class="item item-title">Database Management</span>
                           <span class="item">$1,100 to $2,400</span>
-                          <span class="item">2022 Nov 3</span>
-                          <span class="item">Media One</span>
+                          <span class="item">2024 Nov 3</span>
+                          <span class="item">Wasif Zahin</span>
                         </div>
                     </li>
                     <li>
@@ -93,30 +93,30 @@
                           <span class="title">Project Title</span>
                           <span class="title">Budget</span>
                           <span class="title">Estimated</span>
-                          <span class="title">Technology</span>
+                          <span class="title">CEO</span>
                         </div>
                         <div class="list-item">
-                          <span class="item item-title">Backend Coding</span>
+                          <span class="item item-title">Bangladesh Bank</span>
                           <span class="item">$2,000 to $5,000</span>
-                          <span class="item">2022 Nov 28</span>
+                          <span class="item">2024 Nov 28</span>
                           <span class="item">PHP MySQL</span>
                         </div>
                         <div class="list-item">
-                          <span class="item item-title">New Web App</span>
+                          <span class="item item-title">Bkash</span>
                           <span class="item">$1,500 to $3,000</span>
-                          <span class="item">2022 Nov 18</span>
+                          <span class="item">2024 Nov 18</span>
                           <span class="item">Python Programming</span>
                         </div>
                         <div class="list-item">
-                          <span class="item item-title">Frontend Interactions</span>
+                          <span class="item item-title">Rocket</span>
                           <span class="item">$3,000 to $6,000</span>
-                          <span class="item">2022 Nov 10</span>
+                          <span class="item">2024 Nov 10</span>
                           <span class="item">JavaScripts</span>
                         </div>
                         <div class="list-item last-item">
-                          <span class="item item-title">Video Creations</span>
+                          <span class="item item-title">Nagad</span>
                           <span class="item">$1,800 to $4,400</span>
-                          <span class="item">2022 Nov 3</span>
+                          <span class="item">2024 Nov 3</span>
                           <span class="item">Multimedia</span>
                         </div>
                       </div>
@@ -132,7 +132,7 @@
             <h4>Our Vision:</h4>
             <p>At KUET Bank, our vision is to be the leading bank in our region, recognized for our commitment to excellence, innovation, and customer satisfaction. We strive to create lasting relationships with our customers by delivering exceptional banking services and contributing to the growth and prosperity of the communities we serve.</p>
             <div class="green-button">
-              <a href="about-us.html">Discover More</a>
+              <a href="{{url('discovermore')}}">Discover More</a>
             </div>
           </div>
         </div>

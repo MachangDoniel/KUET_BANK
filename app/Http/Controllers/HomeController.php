@@ -9,6 +9,8 @@ use App\Models\User;
 use Carbon\Carbon;
 use App\Models\Appointment;
 use App\Models\Transaction;
+use App\Models\Transactionmethod;
+use App\Models\Feedback;
 
 // use DB;
 // use App\Http\Requests;
@@ -25,12 +27,19 @@ class HomeController extends Controller
             } 
             else if(Auth::user()->usertype == '1') {
                 $employeedata= User::find(Auth::id());
-                return view('employee.home',compact('employeedata'));
+
+                $transactionmethod=transactionmethod::find(1);
+
+                $info=Transaction::orderBy('id','desc')->get();
+
+                $customerdata = User::all();
+
+                return view('employee.home',compact('employeedata','transactionmethod','info','customerdata'));
             }
-            else if(Auth::user()->usertype == '2') {
-                $admindata= User::find(Auth::id());
-                return view('admin.home',compact('admindata'));
-            }
+            // else if(Auth::user()->usertype == '2') {
+            //     $admindata= User::find(Auth::id());
+            //     return view('admin.home',compact('admindata'));
+            // }
             else{
                 return redirect('home');
             }
@@ -60,8 +69,8 @@ class HomeController extends Controller
         if(Auth::id()){
             if(Auth::user()->usertype==0){
                 // $userid=Auth::user()->id;
-                $data=user::find(Auth::id());
-                return view('user.customer.account',compact('data'));
+                $customerdata=user::find(Auth::id());
+                return view('user.customer.account',compact('customerdata'));
             }
             else{
                 return redirect()->back();
@@ -76,11 +85,11 @@ class HomeController extends Controller
         if(Auth::id()){
             if(Auth::user()->usertype==0){
                  $userid=Auth::user()->id;
-                 $data=user::find(Auth::id());
+                 $customerdata=user::find(Auth::id());
                 // return view('user.customer.accountstatement',compact('data'));
                 $info=Transaction::orderBy('id','desc')->get();
                 // $data=$data->reverse();
-                return view('user.customer.accountstatement',compact('data','info'));
+                return view('user.customer.accountstatement',compact('customerdata','info'));
 
             }
             else{
@@ -95,7 +104,7 @@ class HomeController extends Controller
     public function fundtransfer(Request $request)
     {
         $search = $request->input('search');
-        $data = auth()->user();
+        $customerdata = auth()->user();
 
         $customers = [];
 
@@ -103,7 +112,7 @@ class HomeController extends Controller
             $customers = User::where('id', $search - 100000)->get();
         }
 
-        return view('user.customer.fundtransfer', compact('search', 'data', 'customers'));
+        return view('user.customer.fundtransfer', compact('search', 'customerdata', 'customers'));
     }
 
     public function transfer(Request $request)
@@ -146,6 +155,11 @@ class HomeController extends Controller
                 $transaction->message="Transferred Tk $transferAmount from account $sender->uid to account $receiver->uid at $transaction->date, $transaction->time";
                 $transaction->save();
 
+                $transactionmethod=transactionmethod::find(1);
+                $transactionmethod->transfer+=$transferAmount;
+                $transactionmethod->total+=$transferAmount;
+                $transactionmethod->save();
+
                 Alert::success('Transfer Successful', 'Money has been transferred successfully.');
             }
         } else {
@@ -155,11 +169,16 @@ class HomeController extends Controller
         return redirect()->route('fundtransfer');
     }
 
-    public function balance($id){
+    public function balance(){
         if(Auth::id()){
             if(Auth::user()->usertype==0){
-                $user=user::find($id);
-                Alert::success('Your current balance is'+$user->balance,'Good Luck');
+                $user= User::find(Auth::id());
+                if($user->balance==0){
+                    Alert::success('Your current balance is 0',' Requested to deposit');
+                }
+                else{
+                    Alert::success('Your current balance is Tk' ,$user->balance);
+                }
             }
             else{
                 return redirect()->back();
@@ -168,6 +187,7 @@ class HomeController extends Controller
         else{
             return redirect('login');
         }
+        return redirect()->back();
     }
     public function customerservice(Request $request){
         if(Auth::id()){
@@ -193,5 +213,59 @@ class HomeController extends Controller
         $data=compact('customers','search');
         return view('employee.customerservice')->with($data);
     }
-    
+
+    public function discovermore()
+    {
+        return view('user.trap.discovermore');
+    }
+
+    public function donieltripura()
+    {
+        return view('user.trap.donieltripura');
+    }
+
+    public function sendfeedback(Request $request)
+    {
+        if(Auth::id()){
+            if(Auth::user()->usertype==0){
+                $data = User::find($request->input('id'));
+
+                $feedback = new Feedback();
+                $feedback->from = Auth::user()->uid;
+                $feedback->name = $request->input('name');
+                $feedback->email = $request->input('email');
+                $feedback->subject = $request->input('subject');
+                $feedback->reason = $request->input('reason');
+                $feedback->date = Carbon::now()->format('Y-m-d');
+                $feedback->time = Carbon::now()->format('H:i:s');
+                $feedback->save();
+
+                Alert::success('Message Sent Successfully', 'Admin will reply you soon');
+                
+            }
+            else{
+                Alert::error('You are logged out', 'Login in first');
+                return redirect()->back();
+            }
+        }
+        else{
+            Alert::error('You are logged out', 'Login in first');
+            // return redirect()->back();
+            return redirect('login');
+        }
+        Alert::error('Something went wrong', '!!!!');
+        return redirect()->back();
+    }
+
+    public function notavailable(){
+        if(Auth::id()){
+            if(Auth::user()->usertype==1 || Auth::user()->usertype==1){
+                Alert::info('Not available for now!','Update is coming soon');
+            }
+            else{
+                Alert::error('Something went wrong!','Try again later');
+            }
+        }
+        return redirect()->back();
+    }
 }

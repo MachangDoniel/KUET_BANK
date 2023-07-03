@@ -27,10 +27,12 @@
     <div class="container" style="margin-top:100px">
         <div align="center" style="padding: 15px;" >
           <table style="height:400px; width:800px;">
+            <tr><td><a style="align:right" class="btn btn-primary" href="{{url('updatecustomer',$data->id)}}">Update</a></td></tr>
+            <tr>
             <td align="center" style="background:white">
               <table>
                 <td><b style="color:black">Customer Profile</b></td>
-                <td>
+                
                 </table>
                 <table style="width:500px;">
                   <tr style="background: black">
@@ -65,6 +67,7 @@
                 </td>
               
             </td>
+            </tr>
           </table>
         </div>
       </div>
@@ -72,6 +75,7 @@
     {{-- Body part end --}}
 
     @include('employee.home.script')
+    @include('sweetalert::alert')
   </div>
 </div>
 </body>

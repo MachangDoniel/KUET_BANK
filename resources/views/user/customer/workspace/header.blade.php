@@ -17,7 +17,8 @@
                         <li class="scroll-to-section"><a href="{{url('account')}}" class="active">Accounts</a></li>
                         <li class="scroll-to-section"><a href="{{url('accountstatement')}}">Account Stastement</a></li>
                         <li class="scroll-to-section"><a href="{{url('fundtransfer')}}">Fund Transfer</a></li>
-                        <li id="balance" class="scroll-to-section" style="background: yellowgreen; border-radius:10%; height:40px; margin-left:10px"><a href="#">Balance</a></li>
+                        {{-- <li id="balance" class="scroll-to-section" style="background: yellowgreen; border-radius:10%; height:40px; margin-left:10px"><a href="{{url('balance',$customerdata->id)}}">Balance</a></li> --}}
+                        <li class="scroll-to-section" style="background: yellowgreen; border-radius:10%; height:40px; margin-left:10px"><a href="{{url('balance')}}">Balance</a></li>
                         @if(Route::has('login'))
                             @auth
                             <x-app-layout>
@@ -40,7 +41,7 @@
 </header>
 <script>
     document.getElementById("balance").addEventListener("click", function() {
-        alert("Your Current Balance is: "+ {{$data->balance}});
+        alert("Your Current Balance is: "+ {{$customerdata->balance}});
     });
 
 </script>

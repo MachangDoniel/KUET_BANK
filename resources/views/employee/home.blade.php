@@ -2,6 +2,12 @@
 <html lang="en">
   <head>
     @include('employee.home.css')
+    <style>
+      .scrollable-div {
+    height: 300px; /* Adjust the height as needed */
+    overflow-y: scroll;
+  }
+    </style>
   </head>
   <body>
     <div class="container-scroller">
@@ -13,5 +19,6 @@
     @include('employee.home.navbar')
     @include('employee.home.body')
     @include('employee.home.script')
+    @include('sweetalert::alert')
   </body>
 </html>

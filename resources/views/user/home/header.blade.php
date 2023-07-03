@@ -10,15 +10,15 @@
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                          <li class="scroll-to-section"><a href="#home" class="active">Home</a></li>
                           <li class="scroll-to-section"><a href="#services">Services</a></li>
                           <li class="scroll-to-section"><a href="#about">About</a></li>
                           <li class="has-sub">
                               <a href="javascript:void(0)">Pages</a>
                               <ul class="sub-menu">
-                                  <li><a href="about-us.html">About Us</a></li>
-                                  <li><a href="our-services.html">Our Services</a></li>
-                                  <li><a href="contact-us.html">Contact Us</a></li>
+                                  <li><a href="#about">About Us</a></li>
+                                  <li><a href="#services">Our Services</a></li>
+                                  <li><a href="#communicate">Contact Us</a></li>
                               </ul>
                           </li>
                           <li class="scroll-to-section"><a href="#testimonials">Testimonials</a></li>
