@@ -7,7 +7,7 @@
             <div class="col-lg-8">
               <div class="header-text">
                 <h2>Your <em>Success</em><br> Our <em>Priority</em></h2>
-                <div class="div-dec"></div>
+                {{-- <div class="div-dec"></div> --}}
                 <p>At KUET Bank, we are committed to providing you with exceptional banking services tailored to meet your financial needs. With a strong focus on customer satisfaction, we strive to be your trusted partner in managing and growing your finances. Whether you are an individual, a small business owner, or a corporate entity, we have the solutions and expertise to support you on your financial journey.</p>
                 <div class="buttons">
                   <div class="green-button">
@@ -70,6 +70,6 @@
       </div>
     </div>
   </div>
-  <div class="swiper-button-next swiper-button-white"></div>
-  <div class="swiper-button-prev swiper-button-white"></div>
+  {{-- <div class="swiper-button-next swiper-button-white"></div>
+  <div class="swiper-button-prev swiper-button-white"></div> --}}
 </div>

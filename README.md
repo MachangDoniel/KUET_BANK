@@ -1,66 +1,96 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# KUET_BANK
 
-## About Laravel
+Based on Bank Management System using HTML,CSS, Bootstrap, Laravel(PHP framework), JS, and mysql for database
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Installation
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Make sure that you have 
 
-## Learning Laravel
+1. VS code https://code.visualstudio.com/
+2. Node.js and NPM https://nodejs.org
+3. Composer https://getcomposer.org
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    
+## How to run
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. Clone the project in your local repository.
+2. Open the copied project folder in your code editor.
+3. Create a file and name it .env and paste the contents of .env.example file.
+4. Get the project database from database/project db folder and import it into your phpmyadmin local host. Make sure you name the database as kuet_bank or you can change it from .env file.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. Open a terminal or command prompt within the project folder.
+6. Generate a new application key:
 
-## Laravel Sponsors
+```bash
+  php artisan key:generate
+```
+7. Install the PHP dependencies specified in the project's composer.json file:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```bash
+  composer install
+```
+8. If you have composer installed already, Make sure that you have the latest version.
 
-### Premium Partners
+```bash
+  composer update
+```
+```bash
+  composer --version
+```
+9. Install the NPM dependencies specified in the project's package.json file:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```bash
+  npm install
+```
+10. If you have NPM installed already, Make sure that you have the latest version.
 
-## Contributing
+```bash
+  npm update
+```
+```bash
+  npm -v
+```
+11. Build front-end assets:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+  npm run dev
+```
+12. Start the development server:
 
-## Code of Conduct
+```bash
+  php artisan serve
+```
+13. Access the project from here: http://localhost:8000 or http://127.0.0.1:8000/
+## Screenshots
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### At Customer Panel
 
-## Security Vulnerabilities
+![Screenshot (95)](https://github.com/MachangDoniel/KUET_BANK/assets/114639828/8c89519e-4d32-4a3f-98e4-321e5207e3d4)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+![Screenshot (80)](https://github.com/MachangDoniel/KUET_BANK/assets/114639828/57d95c91-224e-4b43-a132-4c201106cf41)
 
-## License
+![Screenshot (79)](https://github.com/MachangDoniel/KUET_BANK/assets/114639828/c84d55dd-5ec9-4721-90f9-a8422b3821bc)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+![Screenshot (77)](https://github.com/MachangDoniel/KUET_BANK/assets/114639828/4b685e93-fc6d-4163-864e-f9dcd22db3d6)
+
+![Screenshot (78)](https://github.com/MachangDoniel/KUET_BANK/assets/114639828/d0b5356a-6131-4e6a-8878-dbc5ec54af12)
+
+![Screenshot (79)](https://github.com/MachangDoniel/KUET_BANK/assets/114639828/e8080d70-36b7-4314-9a38-d189e99b365d)
+
+
+#### At Employee Panel
+![Screenshot (81)](https://github.com/MachangDoniel/KUET_BANK/assets/114639828/32a8b00c-9392-40b1-adc9-676b32d4fdc3)
+
+![Screenshot (82)](https://github.com/MachangDoniel/KUET_BANK/assets/114639828/7963ed03-a49e-4552-abff-2d3897ce7147)
+
+![Screenshot (85)](https://github.com/MachangDoniel/KUET_BANK/assets/114639828/b2d294c0-edc4-41da-8456-b98e8ac9343c)
+
+![Screenshot (87)](https://github.com/MachangDoniel/KUET_BANK/assets/114639828/05419198-3b8a-44f1-9aae-777ede7938b1)
+
+![Screenshot (88)](https://github.com/MachangDoniel/KUET_BANK/assets/114639828/0fe029c6-f89c-4623-871c-d2bbf774af25)
+
+![Screenshot (89)](https://github.com/MachangDoniel/KUET_BANK/assets/114639828/8c855b48-997a-4262-b97e-a045c2bcd25c)
+
+![Screenshot (93)](https://github.com/MachangDoniel/KUET_BANK/assets/114639828/6c727c3e-9b4d-4d0d-bfb0-71fc71785cd2)

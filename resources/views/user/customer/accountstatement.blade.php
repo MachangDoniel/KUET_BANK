@@ -29,10 +29,19 @@ https://templatemo.com/tm-574-mexant
 
 -->
 
+<style>
+  .scrollable-div {
+height: 300px; /* Adjust the height as needed */
+overflow-y: scroll;
+}
+</style>
+  </head>
+
 
 <body>
 
   @include('user.customer.workspace.header')
+
   <div id="account">
     <div class="swiper-container" id="top">
         <div class="swiper-wrapper">
@@ -46,9 +55,10 @@ https://templatemo.com/tm-574-mexant
                       <table>
                         <td><b>History</b></td>
                       </table>
+                      <div class="scrollable-div" style="height:500px">
                       <table style="width:1000px;">
                         <thead>
-                          <tr style="background:black; color:white">
+                          <tr style="background:aqua; color:white">
                             <th>Date</th>
                             <th>Time</th>
                             <th>Message</th>
@@ -60,7 +70,7 @@ https://templatemo.com/tm-574-mexant
                             <tr>
                               <td colspan="3">_______________________________________________________________________________________________________________________________________________</td>
                             </tr>
-                            <tr style="background:black; color:white">
+                            <tr style="background:aqua; color:white">
                               <td>{{$row->date}}</td>
                               <td>{{$row->time}}</td>
                               <td>{{$row->message}}</td>
@@ -69,6 +79,7 @@ https://templatemo.com/tm-574-mexant
                             @endforeach
                         </tbody>
                       </table>
+                    </div>
 
                       
                     </td>
@@ -80,7 +91,9 @@ https://templatemo.com/tm-574-mexant
           </div>
       </div>
     </div>
-    </div>  
+    </div>
+
     @include('sweetalert::alert')
+
   </body>
 </html>

@@ -23,6 +23,7 @@
                             @auth
                             <x-app-layout>
                             </x-app-layout>
+                           
                         @else
                            @endauth
                         @endif
