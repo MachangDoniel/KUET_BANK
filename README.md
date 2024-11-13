@@ -1,6 +1,9 @@
 
 # KUET_BANK
 
+The Bank Management System is a web-based application designed to streamline essential banking operations, including customer account management, transaction tracking, and balance management.
+
+
 Based on Bank Management System using HTML,CSS, Bootstrap, Laravel(PHP framework), JS, and mysql for database
 
 
